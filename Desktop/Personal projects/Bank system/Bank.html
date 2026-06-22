@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesky Union Registration</title>
+    <style>
+        .collapsible {
+            background-color: pink;
+            color: peach;
+            cursor: blink;
+            padding: 5px;
+            width: 100%;
+            border: dotted;
+            text-align: center;
+            outline: none;
+        }
+
+        .active, .collapsible:hover {
+            background-color: powderblue;
+        }
+
+        .content {
+            padding: 20px;
+            display: none;
+            overflow: hidden;
+            background-color:greenyellow;
+        }
+
+        .error {
+            color: pink;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Mesky union registration form</h1>
+
+<button type="button" class="collapsible">Personal Details</button>
+<div class="content">
+    <form id="registrationForm">
+        <label for="Username">UserName:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <span class="error" id="usernameError"></span><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <span class="error" id="emailError"></span><br>
+
+        <p>Select gender</p>
+        <label for="Male">Male</label>
+        <input type="radio" value="Male" name="gender" id="Male"><br/>
+        <span class="error" id="radioError"></span><br/>
+
+        
+        <label for="Female">Female</label>
+        <input type="radio" value="Female" name="gender" id="Female"><br/>
+        <span class="error" id="radioError"></span><br/>
+
+        
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" ><br/>
+        <span class="error" id="phoneError"></span><br/>
+
+    </form>
+</div>
+
+<button type="button" class="collapsible">Account Details</button>
+<div class="content">
+    <form id="registrationForm">
+        <label for="accountname">Account Name:</label><br>
+        <input type="text" id="accountname" name="accountname"><br>
+        <span class="error" id="accountname"></span><br>
+
+        <label for="Save">Save:</label><br>
+        <input type="number" id="save" name="save"><br>
+        <span class="error" id="saveError"></span><br>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+</div>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    for (var i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+
+    function validateForm() {
+        var isValid = true;
+        
+        var name = document.getElementById("username").value;
+        if (name === "") {
+            document.getElementById("usernameError").innerText = "Name needed";
+            isValid = false;
+        } else {
+            document.getElementById("usernameError").innerText = "";
+        }
+        
+        var email = document.getElementById("email").value;
+        if (email === "") {
+            document.getElementById("emailError").innerText = "Email needed";
+            isValid = false;
+        } else {
+            document.getElementById("emailError").innerText = "";
+        }
+        
+        var gender = document.getElementById("radio").value;
+        if (gender === "") {
+            document.getElementById("radioError").innerText = "radio needed";
+            isValid = false;
+        } else {
+            document.getElementById("radioError").innerText = "";
+
+
+        var phone= document.getElementById("phone").value;
+        if (accountType === "") {
+            document.getElementById("phoneError").innerText = "phone needed";
+            isValid = false;
+        } else {
+            document.getElementById("phoneError").innerText = "";
+
+
+
+        var accountType = document.getElementById("accountname").value;
+        if (accountType === "") {
+            document.getElementById("accountnameError").innerText = "Account name needed";
+            isValid = false;
+        } else {
+            document.getElementById("accountNameError").innerText = "";
+        }
+        
+        var initialDeposit = document.getElementById("save").value;
+        if (initialDeposit === "") {
+            document.getElementById("saveError").innerText = "Save";
+            isValid = false;
+        } else {
+            document.getElementById("savetError").innerText = "";
+        }
+
+        if (isValid) {
+            alert("Registration successful!");
+        }
+    }
+</script>
+
+</body>
+</html> 
